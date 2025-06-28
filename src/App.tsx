@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<MainLayout />}>
-          <Route index element={<Navigate to="/campaign" replace />} />
+          <Route index element={<Navigate to="/login" replace />} />
           <Route path="campaign" element={<Campaign />} />
           <Route path="settings" element={<div className="p-6">Settings (Coming Soon)</div>} />
         </Route>
