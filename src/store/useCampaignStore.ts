@@ -19,7 +19,6 @@ interface CampaignState {
   campaigns: Campaign[];
   selectedType: CampaignType | 'all';
   filteredCampaigns: Campaign[];
-  // Actions
   addCampaign: (campaign: Omit<Campaign, 'status' | 'responses' | 'engagement' | 'lastRun'>) => void;
   setSelectedType: (type: CampaignType | 'all') => void;
 }
@@ -86,10 +85,9 @@ export const useCampaignStore = create<CampaignState>()(
       }
     }),
     {
-      name: 'campaign-storage', // unique name for localStorage key
+      name: 'campaign-storage', 
       partialize: (state) => ({ 
         campaigns: state.campaigns,
-        // We don't need to store selectedType or filteredCampaigns as they can be derived
       }),
     }
   )

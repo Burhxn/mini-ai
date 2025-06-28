@@ -4,7 +4,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useNavigate } from 'react-router-dom';
 
-// Define the validation schema
 const loginSchema = z.object({
   email: z
     .string()
@@ -20,7 +19,6 @@ const loginSchema = z.object({
   rememberMe: z.boolean().optional()
 });
 
-// Infer the type from the schema
 type LoginFormData = z.infer<typeof loginSchema>;
 
 const Login = () => {
@@ -41,10 +39,8 @@ const Login = () => {
 
   const onSubmit = async (data: LoginFormData) => {
     try {
-      // Simulate API call
       console.log('Login attempt with:', data);
-      await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate delay
-      // Navigate to campaign page after successful login
+      await new Promise(resolve => setTimeout(resolve, 1000)); 
       navigate('/campaign');
     } catch (error) {
       console.error('Login failed:', error);
@@ -53,17 +49,14 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200">
-      {/* Premium gradient background */}
+     
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-purple-50/50 to-gray-100/50"></div>
       
-      {/* Subtle pattern overlay */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiIgc3Ryb2tlPSIjZGRkIiBzdHJva2Utd2lkdGg9IjEiLz48L2c+PC9zdmc+')] opacity-30"></div>
 
-      {/* Login Container */}
       <div className="relative w-full max-w-md p-8 bg-white/90 backdrop-blur-xl rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-100">
         <div className="relative z-10">
           <div className="mb-8 text-center">
-            {/* AI Assistant Icon */}
             <div className="mx-auto w-16 h-16 mb-6 relative">
               <div className="absolute inset-0 bg-indigo-500/20 rounded-full blur-md"></div>
               <div className="relative flex items-center justify-center w-full h-full bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full overflow-hidden">
@@ -72,7 +65,6 @@ const Login = () => {
                   className="w-12 h-12"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  {/* Center circle */}
                   <circle
                     cx="50"
                     cy="50"
@@ -89,7 +81,6 @@ const Login = () => {
                     />
                   </circle>
                   
-                  {/* Animated wave rings */}
                   {[0, 1, 2].map((i) => (
                     <circle
                       key={i}
@@ -123,7 +114,6 @@ const Login = () => {
                     </circle>
                   ))}
                   
-                  {/* Voice bars */}
                   {[-2, -1, 0, 1, 2].map((i) => (
                     <rect
                       key={i}

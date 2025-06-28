@@ -64,7 +64,6 @@ const Campaign = () => {
         visibleToasts={1}
         duration={3000}
       />
-      {/* Page Header */}
       <div className="mb-8">
         <div className="flex justify-between items-start">
           <div>
@@ -81,7 +80,6 @@ const Campaign = () => {
           </button>
         </div>
 
-        {/* Campaign Stats */}
         <div className="grid grid-cols-4 gap-4 mt-6">
           <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
             <div className="flex items-center justify-between">
@@ -140,7 +138,6 @@ const Campaign = () => {
         </div>
       </div>
 
-      {/* Campaign Type Filters */}
       <div className="flex gap-2 mb-6">
         <button
           onClick={() => setSelectedType('all')}
@@ -171,7 +168,6 @@ const Campaign = () => {
         ))}
       </div>
 
-      {/* Campaigns Table */}
       <div className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
         <div className="grid grid-cols-6 gap-4 px-6 py-3 border-b border-gray-200 bg-gray-50">
           <div className="text-xs font-medium text-gray-500 uppercase tracking-wider col-span-2">Campaign Name</div>

@@ -4,7 +4,6 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { z } from 'zod';
 
-// Base schema for form validation
 const campaignSchema = z.object({
   name: z.string()
     .min(1, 'Campaign name is required')
@@ -17,7 +16,6 @@ const campaignSchema = z.object({
     .min(new Date(), 'Schedule date must be in the future')
 });
 
-// Schema for the submitted data (with ISO string date)
 const submissionSchema = campaignSchema.transform((data) => ({
   ...data,
   scheduledDate: data.scheduledDate.toISOString()
@@ -53,7 +51,6 @@ const NewCampaignModal = ({ isOpen, onClose, onSubmit }: NewCampaignModalProps) 
     if (!selectedDate) return;
 
     try {
-      // Validate and transform the data for submission
       const validatedData = submissionSchema.parse({
         ...formData,
         scheduledDate: selectedDate
@@ -92,7 +89,6 @@ const NewCampaignModal = ({ isOpen, onClose, onSubmit }: NewCampaignModalProps) 
     email: 'bg-indigo-50 text-indigo-700 border-indigo-200'
   };
 
-  // Custom input component for DatePicker
   const CustomInput = ({ value, onClick }: { value?: string; onClick?: () => void }) => (
     <div 
       className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-indigo-500/20 focus-within:border-indigo-500 
@@ -130,7 +126,6 @@ const NewCampaignModal = ({ isOpen, onClose, onSubmit }: NewCampaignModalProps) 
 
         <form onSubmit={handleSubmit} className="p-6">
           <div className="space-y-5">
-            {/* Campaign Name */}
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                 Campaign Name
@@ -152,7 +147,6 @@ const NewCampaignModal = ({ isOpen, onClose, onSubmit }: NewCampaignModalProps) 
               {errors.name && <p className="mt-1.5 text-sm text-red-600">{errors.name}</p>}
             </div>
 
-            {/* Campaign Type */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Campaign Type
@@ -182,7 +176,6 @@ const NewCampaignModal = ({ isOpen, onClose, onSubmit }: NewCampaignModalProps) 
               {errors.type && <p className="mt-1.5 text-sm text-red-600">{errors.type}</p>}
             </div>
 
-            {/* Schedule Date */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Schedule Date
@@ -210,7 +203,6 @@ const NewCampaignModal = ({ isOpen, onClose, onSubmit }: NewCampaignModalProps) 
               )}
             </div>
 
-            {/* Message */}
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                 Message

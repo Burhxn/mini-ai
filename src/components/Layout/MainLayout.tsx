@@ -15,19 +15,16 @@ const MainLayout = () => {
   ];
 
   const handleLogout = () => {
-    // Here you would typically handle logout logic (clear tokens, etc.)
     navigate('/login');
   };
 
   return (
     <div className="flex h-screen bg-gray-50">
-      {/* Left Navbar */}
       <nav 
         className={`${
           isCollapsed ? 'w-16' : 'w-64'
         } bg-white border-r border-gray-200 transition-all duration-300 flex flex-col relative`}
       >
-        {/* Toggle Arrow Button */}
         <button
           onClick={() => setIsCollapsed(!isCollapsed)}
           className="absolute -right-3 top-8 w-6 h-6 bg-white border border-gray-200 rounded-full
@@ -40,7 +37,6 @@ const MainLayout = () => {
           />
         </button>
 
-        {/* Logo Section */}
         <div className="p-4 border-b border-gray-100">
           <div className="flex items-center">
             <div className="w-8 h-8 bg-indigo-50 rounded-lg flex items-center justify-center">
@@ -58,7 +54,6 @@ const MainLayout = () => {
           </div>
         </div>
 
-        {/* Nav Items */}
         <div className="flex-1 py-4">
           {navItems.map((item) => (
             <NavLink
@@ -81,7 +76,6 @@ const MainLayout = () => {
           ))}
         </div>
 
-        {/* User Profile Section */}
         <div className="border-t border-gray-100">
           <div className="p-3 bg-gray-50 hover:bg-gray-100 transition-colors duration-200">
             <div className="flex items-center">
@@ -125,7 +119,6 @@ const MainLayout = () => {
         </div>
       </nav>
 
-      {/* Main Content */}
       <main className="flex-1 overflow-auto bg-gray-50">
         <Outlet />
       </main>
